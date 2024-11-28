@@ -16,12 +16,20 @@ def time_to_minutes():
     
     return total_minutes
 
+def show_help():
+    print("*********************************************************************")
+    print("* Enter the job duration to get the dat and time the job completes. *")
+    print("* Use the format hh:mm. For example: 15:12                          *")
+    print("*Enter the time as 0:0 to quit the program.                         *")
+    print("*********************************************************************\n")
+
 total_minutes = 1
+show_help()
 
 while total_minutes > 0:
     # Call the function and print the result
     total_minutes = time_to_minutes()
-    print(f"The total number of minutes is: {total_minutes}")
+    # print(f"The total number of minutes is: {total_minutes}")
 
 
     if total_minutes > 0:
