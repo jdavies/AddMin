@@ -17,11 +17,12 @@ def time_to_minutes():
     return total_minutes
 
 def show_help():
-    print("*********************************************************************")
-    print("* Enter the job duration to get the dat and time the job completes. *")
-    print("* Use the format hh:mm. For example: 15:12                          *")
-    print("*Enter the time as 0:0 to quit the program.                         *")
-    print("*********************************************************************\n")
+    print("**********************************************")
+    print("* Enter the job duration to get the date and *")
+    print("* time the job completes.                    *")
+    print("* Use the format hh:mm. For example: 15:12   *")
+    print("* Enter the time as 0:0 to quit the program. *")
+    print("**********************************************\n")
 
 total_minutes = 1
 show_help()
