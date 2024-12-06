@@ -4,19 +4,46 @@
 import pyperclip
 from datetime import datetime, timedelta
 
-def time_to_minutes():
-    # Prompt the user for input
-    time_input = input("Enter the job time in hh:mm format: ")
-    
-    # Split the input into hours and minutes
-    hours, minutes = map(int, time_input.split(':'))
-    
-    # Convert hours to minutes and add the minutes
-    total_minutes = hours * 60 + minutes
-    
+
+def time_to_minutes() -> int:
+    """
+    Prompts the user to enter the time it takes to complete the job
+    in hours:minutes and returns the total time, in minutes.
+
+    :return: Ther total number of minutes the job will take to complete.
+    :rtype: int
+
+    :Example:
+    >>> time_to_minutes()
+    148
+    """
+    invalid = True
+    total_minutes = 0
+
+    while invalid:
+        try:
+            # Prompt the user for input
+            time_input = input("Enter the job time in hh:mm format: ")
+            
+            # Split the input into hours and minutes
+            hours, minutes = map(int, time_input.split(':'))
+            
+            invalid = False # Successfully converted the string input
+
+            # Convert hours to minutes and add the minutes
+            total_minutes = hours * 60 + minutes
+        except ValueError as e:
+            invalid = True
+            print("You must enter a valid time in hh:mm format. For example:")
+            print("12:15")
+            print("for 12 hours and 15 minutes.")
+
     return total_minutes
 
 def show_help():
+    """
+    Shows the help screen to the user.
+    """
     print("**********************************************")
     print("* Enter the job duration to get the date and *")
     print("* time the job completes.                    *")
@@ -24,11 +51,12 @@ def show_help():
     print("* Enter the time as 0:0 to quit the program. *")
     print("**********************************************\n")
 
+
 total_minutes = 1
 show_help()
 
 while total_minutes > 0:
-    # Call the function and print the result
+    # Get the total job time, in minutes, from the suer
     total_minutes = time_to_minutes()
 
     if total_minutes > 0:
