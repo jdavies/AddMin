@@ -67,6 +67,8 @@ while total_minutes > 0:
         new_datetime = current_datetime + timedelta(minutes=total_minutes)
         formatted_date_time = new_datetime.strftime("%Y-%m-%d %H:%M")
 
+        # Copy the value to the clipboard so the user can easily paste
+        # it into the app of their choice.
         pyperclip.copy(formatted_date_time)
 
         # Display the result
