@@ -21,22 +21,22 @@ def time_to_minutes() -> int:
     total_minutes = 0
 
     while invalid:
+        # Prompt the user for input
+        time_input = input("Enter the job time in hh:mm format: ")
         try:
-            # Prompt the user for input
-            time_input = input("Enter the job time in hh:mm format: ")
-            
-            # Split the input into hours and minutes
+             # Split the input into hours and minutes
             hours, minutes = map(int, time_input.split(':'))
-            
-            invalid = False # Successfully converted the string input
-
-            # Convert hours to minutes and add the minutes
-            total_minutes = hours * 60 + minutes
         except ValueError as e:
             invalid = True
             print("You must enter a valid time in hh:mm format. For example:")
             print("12:15")
             print("for 12 hours and 15 minutes.")
+
+        else:
+            invalid = False # Successfully converted the string input
+
+            # Convert hours to minutes and add the minutes
+            total_minutes = hours * 60 + minutes
 
     return total_minutes
 
