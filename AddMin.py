@@ -1,7 +1,7 @@
 # AddMin.py
 # Author: Jeff Davies
 # License: CC0 - No attribution required
-
+import pyperclip
 from datetime import datetime, timedelta
 
 def time_to_minutes():
@@ -30,8 +30,6 @@ show_help()
 while total_minutes > 0:
     # Call the function and print the result
     total_minutes = time_to_minutes()
-    # print(f"The total number of minutes is: {total_minutes}")
-
 
     if total_minutes > 0:
         # Get the current datetime
@@ -41,7 +39,10 @@ while total_minutes > 0:
         new_datetime = current_datetime + timedelta(minutes=total_minutes)
         formatted_date_time = new_datetime.strftime("%Y-%m-%d %H:%M")
 
+        pyperclip.copy(formatted_date_time)
+
         # Display the result
         # print("Current datetime:", current_datetime)
-        print("Job completes:", formatted_date_time)
+        print(f"Job completes: {formatted_date_time}")
+        print("Copied to clipboard!")
 print("Done!")
