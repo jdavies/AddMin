@@ -52,28 +52,32 @@ def show_help():
     print("**********************************************\n")
 
 
-total_minutes = 1
-show_help()
+def main() -> None:
+    total_minutes = 1
+    show_help()
 
-while total_minutes > 0:
-    # Get the total job time, in minutes, from the suer
-    total_minutes = time_to_minutes()
+    while total_minutes > 0:
+        # Get the total job time, in minutes, from the suer
+        total_minutes = time_to_minutes()
 
-    if total_minutes > 0:
-        # Get the current datetime
-        current_datetime = datetime.now()
+        if total_minutes > 0:
+            # Get the current datetime
+            current_datetime = datetime.now()
 
-        # Add the specified number of minutes to the current datetime
-        new_datetime = current_datetime + timedelta(minutes=total_minutes)
-        formatted_date_time = new_datetime.strftime("%Y-%m-%d %H:%M")
+            # Add the specified number of minutes to the current datetime
+            new_datetime = current_datetime + timedelta(minutes=total_minutes)
+            formatted_date_time = new_datetime.strftime("%Y-%m-%d %H:%M")
 
-        # Copy the value to the clipboard so the user can easily paste
-        # it into the app of their choice.
-        pyperclip.copy(formatted_date_time)
+            # Copy the value to the clipboard so the user can easily paste
+            # it into the app of their choice.
+            pyperclip.copy(formatted_date_time)
 
-        # Display the result
-        # print("Current datetime:", current_datetime)
-        print(f"Total Minutes: {total_minutes}")
-        print(f"Job completes: {formatted_date_time}")
-        print("Copied to clipboard!")
-print("Done!")
+            # Display the result
+            # print("Current datetime:", current_datetime)
+            print(f"Total Minutes: {total_minutes}")
+            print(f"Job completes: {formatted_date_time}")
+            print("Copied to clipboard!")
+    print("Done!")
+
+if __name__ == '__main__':
+    main()
