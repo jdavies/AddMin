@@ -73,6 +73,7 @@ while total_minutes > 0:
 
         # Display the result
         # print("Current datetime:", current_datetime)
+        print(f"Total Minutes: {total_minutes}")
         print(f"Job completes: {formatted_date_time}")
         print("Copied to clipboard!")
 print("Done!")
